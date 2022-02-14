@@ -3,6 +3,7 @@
 	"author": "Alif Ekasmara",
 	"description": "This project is to fulfilled the freecodecamp course",
 	"keywords": ["freecodecamp", "bootcamp", "backend", "web"],
+	"license": "MIT",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
