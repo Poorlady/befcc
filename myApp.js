@@ -5,6 +5,11 @@ var app = express();
 const absolutePath = path.join(__dirname, "public");
 // console.log(absolutePath);
 app.use("/public", express.static(absolutePath));
+// middleware
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+});
 // route to serve json
 app.get("/json", (req, res) => {
     let message = "Hello json";
