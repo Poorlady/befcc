@@ -17,6 +17,10 @@ app.get("/now", (req, res, next) => {
 }, (req, res, next) => {
     res.json({ time: req.time });
 });
+// route param
+app.get("/:word/echo", (req, res) => {
+    res.json({ echo: req.params.word });
+});
 // route to serve json
 app.get("/json", (req, res) => {
     let message = "Hello json";
