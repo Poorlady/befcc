@@ -23,7 +23,7 @@ app.get("/:word/echo", (req, res) => {
 });
 // route query
 app.get('/name', (req, res) => {
-    res.json({ name: `${req.query.firstname} ${req.query.lastname}` });
+    res.json({ name: `${req.query.first} ${req.query.last}` });
 });
 // route to serve json
 app.get("/json", (req, res) => {
