@@ -21,6 +21,10 @@ app.get("/now", (req, res, next) => {
 app.get("/:word/echo", (req, res) => {
     res.json({ echo: req.params.word });
 });
+// route query
+app.get('/name', (req, res) => {
+    res.json({ name: `${req.query.firstname} ${req.query.lastname}` });
+});
 // route to serve json
 app.get("/json", (req, res) => {
     let message = "Hello json";
