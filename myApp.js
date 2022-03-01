@@ -10,6 +10,13 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
 });
+// chained middleware
+app.get("/now", (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+}, (req, res, next) => {
+    res.json({ time: req.time });
+});
 // route to serve json
 app.get("/json", (req, res) => {
     let message = "Hello json";
