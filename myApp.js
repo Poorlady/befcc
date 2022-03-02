@@ -50,8 +50,9 @@ const findPeopleByName = async (personName, done) => {
   done(null, person /*, data*/);
 };
 
-const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+const findOneByFood = async (food, done) => {
+  const person = await Person.findOne({ favoriteFoods: { $elemMatch: food } });
+  done(null, person /*, data*/);
 };
 
 const findPersonById = (personId, done) => {
