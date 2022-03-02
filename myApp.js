@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 // const Person = require("./models/Person");
 // connect to mongoose
-mongoose.connect(process.env.MONGO_URI).then(res => console.log(res)).catch(err => console.log(err));
+mongoose.connect(process.env.MONGO_URI).catch(err => console.log(err));
 
 const personSchema = new Schema({
   name: { type: String, required: true },
@@ -14,7 +14,15 @@ const personSchema = new Schema({
 let Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  const personToSave = {
+    name: "Alif Ekasmara",
+    age: 23,
+    favoriteFoods: ["Pasta", "Pizza"]
+  };
+
+  const personReturn = Person.create(personToSave);
+
+  done(null, personReturn /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
