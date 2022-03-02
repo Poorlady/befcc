@@ -25,8 +25,23 @@ const createAndSavePerson = async (done) => {
   done(null, personReturn /*, data*/);
 };
 
-const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+const createManyPeople = async (arrayOfPeople, done) => {
+  // const peopleToSave = [
+  //   { 
+  //     name: "Alif Ekasmara", 
+  //     age: 23, 
+  //     favoriteFoods: ["Pasta", "Pizza"] 
+  //   }, 
+  //   { 
+  //     name: "Thomas Cook", 
+  //     age: 25, 
+  //     favoriteFoods: ["British Breakfast"] 
+  //   }
+  // ];
+
+  const people = await Person.create(arrayOfPeople);
+
+  done(null, people /*, data*/);
 };
 
 const findPeopleByName = (personName, done) => {
