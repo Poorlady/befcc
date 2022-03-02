@@ -1,9 +1,10 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
+const Person = require("./models/Person");
 // connect to mongoose
 mongoose.connect(process.env.MONGO_URI).then(res => console.log(res)).catch(err => console.log(err));
 
-let Person;
+// let Person;
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
