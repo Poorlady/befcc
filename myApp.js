@@ -93,7 +93,7 @@ const removeManyPeople = async (done) => {
     done(null, response);
   });
 
-  done(null, response/*, data*/);
+  // done(null, response/*, data*/);
 };
 
 // removeManyPeople((_, results) => console.log(results));
