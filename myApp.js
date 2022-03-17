@@ -85,10 +85,12 @@ const removeById = async (personId, done) => {
   done(null, personDeleted /*, data*/);
 };
 
-const removeManyPeople = (done) => {
+const removeManyPeople = async (done) => {
   const nameToRemove = "Mary";
 
-  done(null /*, data*/);
+  const results = await Person.deleteMany({ name: nameToRemove });
+
+  done(null, results/*, data*/);
 };
 
 const queryChain = (done) => {
@@ -96,6 +98,8 @@ const queryChain = (done) => {
 
   done(null /*, data*/);
 };
+
+
 
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !

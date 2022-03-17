@@ -40,6 +40,10 @@ const TIMEOUT = 10000;
 app.use(bodyParser.urlencoded({ extended: "false" }));
 app.use(bodyParser.json());
 
+app.get("/hisyame", (req, res, next) => {
+  res.json({ "name": "hisyam" });
+});
+
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
