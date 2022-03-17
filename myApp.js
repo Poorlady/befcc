@@ -79,8 +79,10 @@ const findAndUpdate = async (personName, done) => {
   done(null, updatedPerson /*, data*/);
 };
 
-const removeById = (personId, done) => {
-  done(null /*, data*/);
+const removeById = async (personId, done) => {
+  const personDeleted = await Person.findOneAndRemove({ _id: personId });
+
+  done(null, personDeleted /*, data*/);
 };
 
 const removeManyPeople = (done) => {
