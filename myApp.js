@@ -88,9 +88,12 @@ const removeById = async (personId, done) => {
 const removeManyPeople = async (done) => {
   const nameToRemove = "Mary";
 
-  const results = await Person.deleteMany({ name: { $eq: nameToRemove } });
-  console.log(results);
-  done(null, results/*, data*/);
+  Person.remove({ name: nameToRemove }, (err, response) => {
+    if (err) return console.log(err);
+    done(null, response);
+  });
+
+  done(null, response/*, data*/);
 };
 
 // removeManyPeople((_, results) => console.log(results));
