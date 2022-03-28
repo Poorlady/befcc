@@ -86,15 +86,14 @@ const removeById = async (personId, done) => {
 };
 
 const removeManyPeople = (done) => {
-  const nameToRemove = "Mary";
-  Person.deleteMany({ name: nameToRemove }, (err, response) => {
-    if (err) return console.log(err);
-    done(null, response);
+  const nameToRemove = { name: "Mary" };
+  Person.remove(nameToRemove, (error, removalInfo) => {
+    if (error) throw new Error(error);
+    done(null, removalInfo);
   });
-  // done(null/*, data*/);
 };
 
-// removeManyPeople((_, results) => console.log(results));
+removeManyPeople((_, result) => console.log(result));
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
