@@ -93,7 +93,7 @@ const removeManyPeople = (done) => {
   });
 };
 
-// removeManyPeople((_, result) => console.log(result));
+removeManyPeople((_, result) => console.log(result));
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
