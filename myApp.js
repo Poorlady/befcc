@@ -87,12 +87,10 @@ const removeById = async (personId, done) => {
 
 const removeManyPeople = async (done) => {
   const nameToRemove = "Mary";
-
   Person.remove({ name: nameToRemove }, (err, response) => {
     if (err) return console.log(err);
     done(null, response);
   });
-
   // done(null, response/*, data*/);
 };
 
