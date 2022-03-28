@@ -15,7 +15,7 @@ let Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = async (done) => {
   const personToSave = new Person({
-    name: "Alif Ekasmara",
+    name: "Mary",
     age: 23,
     favoriteFoods: ["Pasta", "Pizza"]
   });
@@ -93,7 +93,7 @@ const removeManyPeople = (done) => {
   });
 };
 
-removeManyPeople((_, result) => console.log(result));
+// removeManyPeople((_, result) => console.log(result));
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
