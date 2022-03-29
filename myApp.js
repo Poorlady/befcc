@@ -99,10 +99,10 @@ const queryChain = (done) => {
   const foodToSearch = "burrito";
   let result;
 
-  Person.find({ favoriteFoods: foodToSearch }).sort().limit(1).select().exec((err, result) => {
+  Person.find({ favoriteFoods: foodToSearch }).sort("name").limit(2).select("name favoriteFoods").exec((err, result) => {
     if (err) throw new Error(err);
-    // console
-    //   .log(result);
+    console
+      .log(result);
     result = result;
   });
 
