@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 // const Person = require("./models/Person");
 // connect to mongoose
-mongoose.connect(process.env.MONGO_URI).catch(err => console.log(err));
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParse: true }).catch(err => console.log(err));
 
 const personSchema = new Schema({
   name: { type: String, required: true },
@@ -93,13 +93,23 @@ const removeManyPeople = (done) => {
   });
 };
 
-removeManyPeople((_, result) => console.log(result));
+// removeManyPeople((_, result) => console.log(result));
 
 const queryChain = (done) => {
   const foodToSearch = "burrito";
+  let result;
 
-  done(null /*, data*/);
+  Person.find({ favoriteFoods: foodToSearch }).sort().limit(1).select().exec((err, result) => {
+    if (err) throw new Error(err);
+    // console
+    //   .log(result);
+    result = result;
+  });
+
+  done(null, result /*, data*/);
 };
+
+queryChain((_, result) => console.log(result));
 
 
 
