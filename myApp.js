@@ -100,13 +100,9 @@ const queryChain = (done) => {
   let result;
 
   Person.find({ favoriteFoods: foodToSearch }).sort("name").limit(2).select("name favoriteFoods").exec((err, result) => {
-    if (err) throw new Error(err);
-    console
-      .log(result);
-    result = result;
+    done(err, result /*, data*/);
   });
 
-  done(null, result /*, data*/);
 };
 
 queryChain((_, result) => console.log(result));
